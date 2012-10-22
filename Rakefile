@@ -209,10 +209,9 @@ end
 desc "deploy basic rack app to heroku"
 multitask :heroku do
   puts "## Deploying to Heroku "
-  unless gen_completed
+  unless File::exists?(".heroku_failed")
     Rake::Task[:generate].execute
   end
-  gen_completed = true
   cd "#{public_dir}" do
     system "git add ."
     puts "\n## Committing: Site updated at #{Time.now.utc}"
@@ -220,10 +219,26 @@ multitask :heroku do
     system "git commit -m '#{message}'"
     puts "\n## Pushing generated #{public_dir} website"
     system "git push heroku master"
-    @push_status = $?
+    if $? == 0
+      File::delete(".heroku_failed") if File::exists?(".heroku_failed")
+    else
+      File::write(".heroku_failed")
+    end
     puts "\n## Heroku deploy complete"
   end
-  gen_completed = false if @push_status == 0
+end
+
+desc "Commit Source Changes and deploy to heroku in one fell swoop"
+multitask :deploy_heroku do
+  puts "## Committing changes to source"
+  system "git status"
+  if $? == 0
+    system "git add ."
+    puts "\n## Committing: Source updated at #{Time.now.utc}"
+    message = "Source updated at #{Time.now.utc}"
+    system "git commit -m '#{message}'"
+  end
+  Rake::Task[:heroku].execute
 end
 
 desc "Default deploy task"
