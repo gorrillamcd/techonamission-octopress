@@ -209,7 +209,10 @@ end
 desc "deploy basic rack app to heroku"
 multitask :heroku do
   puts "## Deploying to Heroku "
-  Rake::Task[:generate].execute
+  unless gen_completed
+    Rake::Task[:generate].execute
+  end
+  gen_completed = true
   cd "#{public_dir}" do
     system "git add ."
     puts "\n## Committing: Site updated at #{Time.now.utc}"
@@ -217,8 +220,10 @@ multitask :heroku do
     system "git commit -m '#{message}'"
     puts "\n## Pushing generated #{public_dir} website"
     system "git push heroku master"
+    @push_status = $?
     puts "\n## Heroku deploy complete"
   end
+  gen_completed = false if @push_status == 0
 end
 
 desc "Default deploy task"
