@@ -206,6 +206,21 @@ end
 # Deploying  #
 ##############
 
+desc "deploy basic rack app to heroku"
+multitask :heroku do
+  puts "## Deploying to Heroku "
+  Rake::Task[:generate].execute
+  cd "#{public_dir}" do
+    system "git add ."
+    puts "\n## Committing: Site updated at #{Time.now.utc}"
+    message = "Site updated at #{Time.now.utc}"
+    system "git commit -m '#{message}'"
+    puts "\n## Pushing generated #{public_dir} website"
+    system "git push heroku master"
+    puts "\n## Heroku deploy complete"
+  end
+end
+
 desc "Default deploy task"
 task :deploy do
   # Check if preview posts exist, which should not be published
