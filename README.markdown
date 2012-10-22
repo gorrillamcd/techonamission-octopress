@@ -11,26 +11,38 @@ Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
 
 ## Documentation
 
-Check out [Octopress.org](http://octopress.org/docs) for guides and documentation.
+I've modified my installation of Octopress a bit to make deploying the generated site to Heroku easier. There is a directory called /_heroku where the generated site is placed. That directory is not part of this git repository, rather it is it's own repository with heroku as the git remote. That means that when you want to publish changes to the blog, you just:
 
+```
+git add .
+git commit -m "Commit Message"  # Commit changes first of all.
+rake generate                   # Generate the newly edited site
+cd ./_heroku
+git add .
+git commit -m "Commit Message"  # Commit changes to the generated site since they are separate repos
+git push heroku master          # Push changes to heroku
+```
 
-## Contributing
+To make a new post or page:
 
-We love to see people contributing to Octopress, whether it's a bug report, feature suggestion or a pull request. At the moment, we try to keep the core slick and lean, focusing on basic blogging needs, so some of your suggestions might not find their way into Octopress. For those ideas, we started a [list of 3rd party plug-ins](https://github.com/imathis/octopress/wiki/3rd-party-plugins), where you can link your own Octopress plug-in repositories. For the future, we're thinking about ways to easier add them them into our main releases.
+```
+rake new_post['Post Title']
+or
+rake new_page['Page Name']
+```
 
+For more octopress documentation, see [the official docs](http://octopress.org/docs/)
 
 ## License
-(The MIT License)
 
-Copyright © 2009-2011 Brandon Mathis
+Blog/Page Entries and any content is Copyright © 2012-2013 Timothy Kaemmerer
+
+Octopress is licensed with the MIT License
+
+Copyright © 2009-2012 Brandon Mathis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-#### If you want to be awesome.
-- Proudly display the 'Powered by Octopress' credit in the footer.
-- Add your site to the Wiki so we can watch the community grow.
