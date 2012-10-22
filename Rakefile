@@ -222,7 +222,7 @@ multitask :heroku do
     if $? == 0
       File::delete(".heroku_failed") if File::exists?(".heroku_failed")
     else
-      File::write(".heroku_failed")
+      File::write(".heroku_failed", "w")
     end
     puts "\n## Heroku deploy complete"
   end
