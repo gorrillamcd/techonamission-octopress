@@ -14,7 +14,7 @@ One way is via Paypal. Just click the button below for that:<br />
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="ZDZG37XFFZQ66">
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" style="border:none;box-shadow:none;border-radius:none;">
 </form>
 
 I'm in the process of getting with a missions agency which will help provide accountability and let you guys get a tax-deduction! Until I'm accepted with them though, you can donate via check (made out to Timothy Kaemmerer). Email me for the mailing address if you need it: timkaemmerer "at" gmail.com
