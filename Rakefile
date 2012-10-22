@@ -221,10 +221,11 @@ multitask :heroku do
     system "git push heroku master"
     if $? == 0
       File::delete(".heroku_failed") if File::exists?(".heroku_failed")
+      puts "\n## Heroku deploy complete"
     else
       File::write(".heroku_failed", "w")
+      puts "\n## Heroku deploy had a problem."
     end
-    puts "\n## Heroku deploy complete"
   end
 end
 
