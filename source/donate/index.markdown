@@ -2,7 +2,7 @@
 layout: page
 title: "donate"
 date: 2012-10-21 16:25
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
