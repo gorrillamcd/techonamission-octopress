@@ -18,6 +18,11 @@ Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
 I've modified my installation of Octopress a bit to make deploying the generated site to Heroku easier. There is a directory called /_heroku where the generated site is placed. That directory is not part of this git repository, rather it is it's own repository with heroku as the git remote. That means that when you want to publish changes to the blog, you just:
 
 ```
+heroku login        # Login to Heroku
+rake deploy_heroku  # Commits the changes, generates the site, and pushes it to heroku
+```
+
+```
 git add .
 git commit -m "Commit Message"  # Commit changes first of all.
 rake generate                   # Generate the newly edited site
