@@ -11,7 +11,7 @@ I was racking my brain yesterday and today trying to figure out a javascript err
 ### The Problem
 
 No javascript would run on any page. Dropdowns, modal windows, nothing would run. I couldn't find any weird errors in the dev console on Chrome and had the same effect in multiple browsers. The problem would remain whether I include the js from an external file or inline anywhere in the file.
-<!--more-->
+<!-- more -->
 
 ### The Solution
 
