@@ -33,3 +33,11 @@ if typeof Stripe == 'function'
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   subscription.setupForm()
 ```
+
+With that, you can safely include the javascript pertaining to Stripe only on the PaymentController views, thus saving an http request on the other views. It's super easy to do that in your application.html.erb layout file:
+
+``` ruby
+<%= javascript_include_tag "https://js.stripe.com/v1/" if controller_name == 'payments'  %>
+```
+
+Where `payments` is the plural, lowercase name of the controller you're using to handle payments.
