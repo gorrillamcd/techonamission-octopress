@@ -7,6 +7,7 @@ $root = ::File.dirname(__FILE__)
 class SinatraStaticServer < Sinatra::Base  
 
   get(/.+/) do
+    expires 36000, :public, :must_revalidate
     send_sinatra_file(request.path) {404}
   end
 

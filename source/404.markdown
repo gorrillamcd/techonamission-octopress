@@ -1,0 +1,17 @@
+---
+layout: page
+title: "404 Error"
+date: 2012-10-26 16:25
+comments: false
+sharing: false
+footer: false
+---
+
+Sorry, the page you're looking for cannot be found. I migrated my blog from tumblr so some links might not work anymore.
+
+Maybe these links might help you get your bearings:
+
+* [Armory Online Bible College](https://github.com/gorrillamcd/Armory): The open source application that is used for [ibccmexico.com](http://ibccmexico.com)
+* [The Homepage]({{ root_url }}): Techonamission.com homepage
+* [Missionary-related Blog Posts]({{ root_url }}blog/categories/missions): Blog posts from the "Missions" category.
+* [Technology-related Blog Posts]({{ root_url }}blog/categories/technology): Blog posts from the "Technology" category.
