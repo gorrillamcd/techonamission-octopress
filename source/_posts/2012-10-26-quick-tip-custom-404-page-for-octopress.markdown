@@ -21,7 +21,7 @@ So, for Octopress, it's already configured to handle 404 pages and you just need
 
 To create the page, make a new file named `404.markdown` in your `/sources` directory. I just copied the Yaml header from one of my pages, but here it is anyways:
 
-```markdown 404.markdown
+```yaml 404.markdown
 ---
 layout: page
 title: "404 Error"
