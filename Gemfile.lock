@@ -30,6 +30,7 @@ GEM
     maruku (0.6.0)
       syntax (>= 1.0.0)
     memcachier (0.0.1)
+    newrelic_rpm (3.5.0.1)
     posix-spawn (0.3.6)
     pygments.rb (0.2.13)
       rubypython (~> 0.5.3)
@@ -65,6 +66,7 @@ DEPENDENCIES
   jekyll (~> 0.11.2)
   liquid (~> 2.3.0)
   memcachier
+  newrelic_rpm
   pygments.rb (~> 0.2.12)
   rack (~> 1.4.1)
   rack-cache

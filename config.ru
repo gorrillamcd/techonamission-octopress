@@ -24,7 +24,11 @@ use Rack::Deflater
 # The project root directory
 $root = ::File.dirname(__FILE__)
 
-class SinatraStaticServer < Sinatra::Base  
+class SinatraStaticServer < Sinatra::Base
+
+  configure :production do
+    require 'newrelic_rpm'
+  end  
 
   before do
     expires 3600, :public, :must_revalidate
