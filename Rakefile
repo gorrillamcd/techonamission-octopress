@@ -238,6 +238,7 @@ multitask :deploy_heroku do
     puts "\n## Committing: Source updated at #{Time.now.utc}"
     message = "Source updated at #{Time.now.utc}"
     system "git commit -m '#{message}'"
+    system "git push origin master"
   end
   Rake::Task[:heroku].execute
 end
